@@ -1,32 +1,31 @@
 <template>
-  <div id="app">
+  <v-app>
     <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/support">Help Center</router-link> |
+      <router-link to="/admin/support">Help Center Admin</router-link>
     </nav>
-    <router-view/>
-  </div>
+    <v-main>
+      <v-container>
+        <router-view/>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+export default {
+  name: 'App',
 }
+</script>
 
+<style lang="scss" scoped>
 nav {
-  padding: 30px;
-}
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 18px;
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+  }
 }
 </style>

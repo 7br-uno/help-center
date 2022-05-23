@@ -1,22 +1,41 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    redirect: '/support'
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/support',
+    name: 'helpCenter',
+    component: () => import('../modules/helpCenter/views/helpCenter')
+  },
+  {
+    path: '/support/:categoryId',
+    name: 'helpCenterCategoryList',
+    component: () => import('../modules/helpCenter/views/helpCenter/category')
+  },
+  {
+    path: '/support/:categoryId/:articleId',
+    name: 'helpCenterArticle',
+    component: () => import('../modules/helpCenter/views/helpCenter/article')
+  },
+  {
+    path: '/admin/support',
+    redirect: '/admin/support/categories'
+  },
+  {
+    path: '/admin/support/articles',
+    name: 'helpCenterAdminArticles',
+    component: () => import('../modules/helpCenter/views/helpCenter/admin/articles')
+  },
+  {
+    path: '/admin/support/categories',
+    name: 'helpCenterAdminCategories',
+    component: () => import('../modules/helpCenter/views/helpCenter/admin/category')
   }
 ]
 
